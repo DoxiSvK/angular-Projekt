@@ -57,7 +57,6 @@ export class StudentComponent implements OnInit {
   onCloseModel() {
     const notNull = document.getElementById('studentModel');
     if (notNull != null) {
-      // notNull.style.display='block';
       notNull.style.display = 'none';
     }
   }
@@ -105,7 +104,6 @@ export class StudentComponent implements OnInit {
     this.onCloseModel();
   }
   onLogout() {
-    alert('ser logout Successfully');
     this.router.navigate(['user-login']);
   }
 }

@@ -37,11 +37,11 @@ export class UserLoginComponent implements OnInit {
     };
   }
   onLogin(){
-    const isUserExist=this.signupUsers.find(m=>m.userName==this.loginObj.userName && m.password==this.loginObj.password);
+    const isUserExist=this.signupUsers.find(m=>'admin'==this.loginObj.userName && 'angular'==this.loginObj.password);
     if (isUserExist!=undefined){
       this.router.navigate(['student']);
     } else {
-      alert('Wrong Credentials');
+      alert('Zlé meno alebo heslo');
     }
   }
 }

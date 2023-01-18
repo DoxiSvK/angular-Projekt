@@ -3,7 +3,7 @@
 <div class="card-header">
   <div class="card-title">
     
-  <strong>Student Details</strong>
+  <strong> Databáza študentov</strong>
   <button type="button" class="button1" (click)="onAddStudent()" style="float: right;">
     Pridať
   </button>
@@ -27,9 +27,6 @@
         </thead>
         <tbody>
           <tr *ngFor="let item of studentArr">
-            <td>
-              <input type="checkbox" [(ngModel)]="item.isChecked">
-            </td>
             <td>{{item.fullName}}</td>
             <td>{{item.fullName1}}</td>
             <td>{{item.datumNarodenia}}</td>
@@ -61,7 +58,7 @@
   <div class="modal-content">
     
     <div class="modal-header">
-      <h6 class="modal-title">Pridať</h6>
+      <h4 class="modal-title">Pridať študenta</h4>
       <button type="button" class="button5 " (click)="onCloseModel()">close</button>
     </div>
     <form #userForm="ngForm">
@@ -89,7 +86,7 @@
         <div class="row-pohlavie">
           <label for="singleSelect"> Pohlavie </label>
             <select name="singleSelect" [(ngModel)]="student.pohlavie">
-              <option value="">---Please select---</option>
+              <option value="">---Vyber---</option>
               <option value="Muz">Muz</option>
               <option value="Zena">Zena</option>
             </select>
@@ -98,30 +95,30 @@
         <div class="row-trieda">
           <label for="singleSelect1"> Trieda </label>
             <select name="singleSelect1" [(ngModel)]="student.trieda">
-              <option value="">---Please select---</option>
-              <option value="1a">1a</option>
-              <option value="1b">1b</option>
-              <option value="1c">1c</option>
-              <option value="2a">2a</option>
-              <option value="2b">2b</option>
-              <option value="2c">2c</option>
-              <option value="3a">3a</option>
-              <option value="3b">3b</option>
-              <option value="3c">3c</option>
-              <option value="4a">4a</option>
-              <option value="4b">4b</option>
-              <option value="4c">4c</option>
-            </select>
-        </div> 
-        
-        <div class="row-odbor">
-          <label for="singleSelect2"> Odbor </label>
-            <select name="singleSelect2" [(ngModel)]="student.odbor">
               <option value="">---Vyber---</option>
-              <option value="Programovanie">Programovanie</option>
-              <option value="Inteligentne technologie">Inteligentne technologie</option>
-              <option value="Robotika">Robotika</option>
-              <option value="Graficky dizajn">Graficky dizajn</option>
+              <option value="1a">1A</option>
+              <option value="1b">1B</option>
+              <option value="1c">1C</option>
+              <option value="2a">2A</option>
+              <option value="2b">2B</option>
+              <option value="2c">2C</option>
+              <option value="3a">3A</option>
+              <option value="3b">3B</option>
+              <option value="3c">3C</option>
+              <option value="4a">4A</option>
+              <option value="4b">4B</option>
+              <option value="4c">4C</option>
+            </select>
+        </div>
+      
+       <div class="row-odbor">
+         <label for="singleSelect2"> Odbor </label>
+           <select name="singleSelect2" [(ngModel)]="student.odbor">
+             <option value="">---Vyber---</option>
+             <option value="Programovanie">Programovanie</option>
+             <option value="Inteligentne technologie">Inteligentne technologie</option>
+             <option value="Robotika">Robotika</option>
+             <option value="Graficky dizajn">Siete</option>
             </select>
         </div>
 
@@ -129,8 +126,8 @@
           <label for="singleSelect3">Postihnutie</label>
             <select name="singleSelect3" [(ngModel)]="student.disabled">
               <option value="">---Vyber---</option>
-              <option value="yes">ano</option>
-              <option value="no">nie</option>
+              <option value="ano">ano</option>
+              <option value="nie">nie</option>
           </select>
         </div>
 

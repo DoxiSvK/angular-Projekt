@@ -1,0 +1,175 @@
+<body>
+<div classs="card">
+<div class="card-header">
+  <div class="card-title">
+    
+  <strong>Student Details</strong>
+  <button type="button" class="button1" (click)="onAddStudent()" style="float: right;">
+    Pridať
+  </button>
+</div>  
+<div class="card-body">
+  <div class="row">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Meno</th>
+            <th>Priezvisko</th>
+            <th>Datum narodenia</th>
+            <th>Pohlavie</th>
+            <th> Trieda</th>
+            <th>Odbor</th>
+            <th>Postihnutie</th>
+            <th>Váž priemer</th>
+            <th>Vek</th>
+            <th>Ocenenia</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of studentArr">
+            <td>
+              <input type="checkbox" [(ngModel)]="item.isChecked">
+            </td>
+            <td>{{item.fullName}}</td>
+            <td>{{item.fullName1}}</td>
+            <td>{{item.datumNarodenia}}</td>
+            <td>{{item.pohlavie}}</td>
+            <td>{{item.trieda}}</td>
+            <td>{{item.odbor}}</td>
+            <td>{{item.disabled}}</td>
+            <td>{{item.vazPriemer}}</td>
+            <td>{{item.vek}}</td>
+            <td>{{item.ocenenia}}</td>
+            <td class="text-center">
+              <button type="button" class="button2 " (click)="onEdit(item)">Upraviť</button>&nbsp;
+              <button type="button" class="button3 " (click)="onDelete(item.studentId)">Odstrániť</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div> 
+</div>
+
+
+</body>
+
+
+<div class="modal" id="studentModel">
+<div class="modal-dialog">
+  <div class="modal-content">
+    
+    <div class="modal-header">
+      <h6 class="modal-title">Pridať</h6>
+      <button type="button" class="button5 " (click)="onCloseModel()">close</button>
+    </div>
+    <form #userForm="ngForm">
+     
+      <div class="modal-body">
+
+        <div class="row-Meno">
+            <label class="for-label">Meno</label>
+              <input type="text" name="name" class="form-control" [(ngModel)]="student.fullName"
+              placeholder="Meno" />
+        </div>
+
+        <div class="row-Priezvisko"> 
+          <label class="for-label">Priezvisko</label>
+            <input type="text" name="Priezvisko" class="form-control" [(ngModel)]="student.fullName1"
+            placeholder="Priezvisko" />
+        </div>
+
+        <div class="row-datumNarodenia">
+            <label class="for-label">Datum narodenia</label>
+              <input type="date" name="date" class="form-control" [(ngModel)]="student.datumNarodenia" 
+              placeholder="Datum narodenia" />
+        </div>
+          
+        <div class="row-pohlavie">
+          <label for="singleSelect"> Pohlavie </label>
+            <select name="singleSelect" [(ngModel)]="student.pohlavie">
+              <option value="">---Please select---</option>
+              <option value="Muz">Muz</option>
+              <option value="Zena">Zena</option>
+            </select>
+        </div>
+
+        <div class="row-trieda">
+          <label for="singleSelect1"> Trieda </label>
+            <select name="singleSelect1" [(ngModel)]="student.trieda">
+              <option value="">---Please select---</option>
+              <option value="1a">1a</option>
+              <option value="1b">1b</option>
+              <option value="1c">1c</option>
+              <option value="2a">2a</option>
+              <option value="2b">2b</option>
+              <option value="2c">2c</option>
+              <option value="3a">3a</option>
+              <option value="3b">3b</option>
+              <option value="3c">3c</option>
+              <option value="4a">4a</option>
+              <option value="4b">4b</option>
+              <option value="4c">4c</option>
+            </select>
+        </div> 
+        
+        <div class="row-odbor">
+          <label for="singleSelect2"> Odbor </label>
+            <select name="singleSelect2" [(ngModel)]="student.odbor">
+              <option value="">---Vyber---</option>
+              <option value="Programovanie">Programovanie</option>
+              <option value="Inteligentne technologie">Inteligentne technologie</option>
+              <option value="Robotika">Robotika</option>
+              <option value="Graficky dizajn">Graficky dizajn</option>
+            </select>
+        </div>
+
+        <div class="row-Disabled">
+          <label for="singleSelect3">Postihnutie</label>
+            <select name="singleSelect3" [(ngModel)]="student.disabled">
+              <option value="">---Vyber---</option>
+              <option value="yes">ano</option>
+              <option value="no">nie</option>
+          </select>
+        </div>
+
+         
+        <div class="row-vazPriemer">
+          <label class="for-label">Váž priemer</label>
+            <input type="text" name="name" class="form-control" [(ngModel)]="student.vazPriemer"
+            placeholder="Váž priemer" />
+        </div>
+
+        <div class="row-vek">
+          <label class="for-label">Vek</label>
+            <input type="text" name="vek" class="form-control" [(ngModel)]="student.vek"
+            placeholder="vek" />
+        </div>
+
+        <div class="row-ocenenia">
+          <label>Ocenenia</label>
+            <textarea name="" class="form-control" rows="3" name="ocenenia"  [(ngModel)]="student.ocenenia"
+            placeholder="ocenenia"></textarea>
+        </div>
+
+        
+      </div>
+      <div class="modla-footer">
+        <div class="row">
+          <div class="col-md-5 text-center">
+            <button class="button1 btn-success btn-sm" 
+              (click)="saveStudent(userForm)" *ngIf="student.studentId == 0">uložiť</button>
+            <button class="button1 btn-success btn-sm" 
+              (click)="onUpdate()" *ngIf="student.studentId != 0">Update</button>  
+            <button class="button5 btn-success btn-sm" type="reset"
+              >resetovať</button>  
+          </div>
+        </div>
+      </div>
+    </form>  
+  </div>
+</div>
+</div> 
+<button type="button" class="button5" (click)="onLogout()">Odhlásiť</button>
+<router-outlet></router-outlet>

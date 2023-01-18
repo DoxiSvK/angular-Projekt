@@ -1,0 +1,26 @@
+
+<div class="topContainer">
+<div class="main">  	
+  <input type="checkbox" id="chk" aria-hidden="true">
+
+    <div class="signup">
+      <form>
+        <label for="chk" aria-hidden="true"> Registrácia</label>
+        <input type="text" name="txt" placeholder="User name" required="" [(ngModel)]="signupObj.userName">
+        <input type="email" name="email" placeholder="Email" required="" [(ngModel)]="signupObj.email">
+        <input type="password" name="password" placeholder="Password" required="" [(ngModel)]="signupObj.password">
+        <button (click)="onSignUp()">registrovať</button>
+      </form>
+    </div>
+
+    <div class="login">
+      <form>
+        <label for="chk" aria-hidden="true">Prihlásiť sa</label>
+        <input type="text" name="userName" placeholder="User name" required="" [(ngModel)]="loginObj.userName">
+        <input type="password" name="password" placeholder="Password" required="" [(ngModel)]="loginObj.password">
+        <button (click)="onLogin()">prihlásiť</button>
+      </form>
+    </div>
+</div>
+</div>
+

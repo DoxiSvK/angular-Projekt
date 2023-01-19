@@ -27,17 +27,8 @@ export class UserLoginComponent implements OnInit {
       this.signupUsers=JSON.parse(localData)
     }
   }
-  onSignUp(){
-    this.signupUsers.push(this.signupObj);
-    localStorage.setItem('signupUsers',JSON.stringify(this.signupUsers));
-    this.signupObj = {
-      userName:'',
-      email:'',
-      password:''
-    };
-  }
   onLogin(){
-    const isUserExist=this.signupUsers.find(m=>'admin'==this.loginObj.userName && 'angular'==this.loginObj.password);
+    const isUserExist=(m=>'admin'==this.loginObj.userName && 'angular'==this.loginObj.password);
     if (isUserExist!=undefined){
       this.router.navigate(['student']);
     } else {
